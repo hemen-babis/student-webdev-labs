@@ -10,6 +10,92 @@
     <main>
       <form action="/submit">
         <!-- Add your code here -->
+        <div>
+          <label for="name"><strong>Name:</strong></label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Full Name"
+          />
+        </div>
+
+        <!-- email -->
+        <div>
+          <label for="email"><strong>Email:</strong></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="name@pdx.edu"
+          />
+        </div>
+
+        <!-- fav character -->
+        <fieldset>
+          <legend><strong>Favorite Character:</strong></legend>
+
+          <div>
+            <input
+              type="radio"
+              id="spongebob"
+              name="character"
+              value="spongebob"
+            />
+            <label for="spongebob">Spongebob</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="sandy"
+              name="character"
+              value="sandy"
+            />
+            <label for="sandy">Sandy</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="patrick"
+              name="character"
+              value="patrick"
+            />
+            <label for="patrick">Patrick</label>
+          </div>
+        </fieldset>
+
+        <!-- fan question -->
+        <fieldset>
+          <legend><strong>Are you a fan of the show?</strong></legend>
+
+          <div>
+            <input
+              type="checkbox"
+              id="episodes"
+              name="fan_reason"
+              value="episodes"
+            />
+            <label for="episodes">Yes, I have watched all episodes!</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="memes"
+              name="fan_reason"
+              value="memes"
+            />
+            <label for="memes">Yes, it's got the best memes.</label>
+          </div>
+        </fieldset>
+
+        <!-- buttons -->
+        <div>
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </div>
       </form>
     </main>
   </body>
