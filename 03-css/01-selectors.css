@@ -1,5 +1,3 @@
-/* CSS custom properties / CSS variables */
-
 :root {
   --teal: #008080;
   --royalblue: #4169e1;
@@ -8,14 +6,27 @@
   --magenta: #8b008b;
 }
 
-/* Use attribute selectors for the first part of the exercise */
-
 li[class] {
   color: var(--red);
 }
 
-/* Use descendant, child, and sibling selectors for the second part */
-
 section li {
   color: var(--green);
+}
+
+li[class="dog"] { color: var(--violet); }
+li[id="cat"] { color: var(--teal); }
+li[class="parrot"] { color: var(--green); }
+li[class="donkey"] { color: var(--royalblue); }
+li[class="hedgehog"] { color: var(--violet); }
+li[class~="dog"][class~="cat"] { color: var(--royalblue); }
+
+.list-food ol li:first-child { color: var(--green); }
+.list-food ol li:nth-child(2) { color: var(--magenta); }
+.list-food ol li:nth-child(3) { color: var(--royalblue); }
+.list-food ol li:last-child { color: var(--magenta); }
+
+.list-cleaning ol li { 
+  color: var(--green);
+  font-weight: bold; 
 }
