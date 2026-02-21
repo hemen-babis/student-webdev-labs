@@ -21,3 +21,10 @@ form > * {
 .box {
   height: 160px;
 }
+
+.no-style {
+  height: auto !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: inherit !important;
+}
