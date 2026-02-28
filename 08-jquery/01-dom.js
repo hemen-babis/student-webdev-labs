@@ -1,48 +1,29 @@
-// Exercise #1:
-// When the user clicks the 'copy' button, copy the user input to the output area
+// Wait until the DOM is fully loaded
+$(document).ready(function () {
+  // Part 1 – Click Event
+  // Fetch elements using jQuery
+  let $userInput1 = $('#userInput1');
+  let $copyButton = $('#copy');
+  let $output1 = $('#output1');
 
-// Option #1
-// Fetch JavaScript objects representing specific elements in the DOM
-let userInput1 = document.querySelector('#userInput1');
-let copy = document.querySelector('#copy');
-let output1 = document.querySelector('#output1');
+  // Add event listener
+  $copyButton.on('click', function (event) {
+    console.log('click event', event);
 
-// Add an event listener on the target element
-copy.addEventListener('click', handleClick);
+    // Copy input value to output
+    $output1.text($userInput1.val());
+  });
+  // Part 2 – Input Event
+  // Fetch elements using jQuery
+  let $userInput2 = $('#userInput2');
+  let $output2 = $('#output2');
 
-// Callback function to handle event
-function handleClick(event) {
-  console.log('click event', event);
-  output1.textContent = userInput1.value;
-}
+  // Add event listener
+  $userInput2.on('input', function (event) {
+    console.log('input event', event);
 
-// Option #2
-// document.getElementById('copy').onclick = () => {
-//   let userInput = document.getElementById('userInput1');
-//   let output = document.getElementById('output');
+    // Copy input value to output as user types
+    $output2.text($(this).val());
+  });
 
-//   output.textContent = userInput.value;
-// };
-
-// Option #3
-// document.getElementById('copy').onclick = () => {
-//   document.getElementById('output').textContent = document.getElementById(
-//     'userInput1'
-//   ).value;
-// };
-
-// Exercise #2:
-// When the user enters input text, copy the user input to the output area
-
-// Fetch JavaScript objects representing specific elements in the DOM
-let userInput2 = document.querySelector('#userInput2');
-let output2 = document.querySelector('#output2');
-
-// Add an event listener on the target element
-userInput2.addEventListener('input', handleInput);
-
-// Callback function to handle event
-function handleInput(event) {
-  console.log('click event', event);
-  output2.textContent = userInput2.value;
-}
+});

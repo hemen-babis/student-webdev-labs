@@ -1,52 +1,48 @@
 const url = 'https://anapioficeandfire.com/api/books/';
 
-const app = document.querySelector('#books');
-app.style.paddingLeft = 0;
-const loading = document.querySelector('#loading');
+$(document).ready(function () {
 
-const addBookToDOM = (item) => {
-  console.log(item);
-  let element = document.createElement('div');
-  let title = document.createElement('h4');
-  let author = document.createElement('p');
-  let published = document.createElement('p');
-  let pages = document.createElement('p');
+  const $app = $('#books');
+  const $loading = $('#loading');
 
-  element.style.display = 'flex';
-  element.style.flexDirection = 'column';
-  element.style.alignItems = 'center';
-  element.style.marginTop = '20px';
+  const addBookToDOM = function (item) {
 
-  title.textContent = item.name;
-  author.textContent = `by ${item.authors[0]}`;
-  published.textContent = item.released.substr(0, 4);
-  pages.textContent = `${item.numberOfPages} pages`;
+    const $element = $('<div></div>').css({
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      marginTop: '20px'
+    });
 
-  element.append(title);
-  element.append(author);
-  element.append(published);
-  element.append(pages);
+    const $title = $('<h4></h4>').text(item.name);
+    const $author = $('<p></p>').text(`by ${item.authors[0]}`);
+    const $published = $('<p></p>').text(item.released.substr(0, 4));
+    const $pages = $('<p></p>').text(`${item.numberOfPages} pages`);
 
-  app.append(element);
-};
+    $element.append($title);
+    $element.append($author);
+    $element.append($published);
+    $element.append($pages);
 
-const fetchData = (url) => {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((item) => {
+    $app.append($element);
+  };
+
+  // AJAX request using jQuery
+  $.ajax({
+    url: url,
+    method: 'GET',
+    success: function (data) {
+      data.forEach(function (item) {
         addBookToDOM(item);
       });
-    })
-    .catch((error) => {
-      console.log(error);
-      let li = document.createElement('li');
-      li.textContent = `An error occured. Please try again.`;
-      app.append(li);
-    })
-    .finally(() => {
-      app.removeChild(loading);
-    });
-};
+    },
+    error: function () {
+      const $error = $('<p></p>').text('An error occurred. Please try again.');
+      $app.append($error);
+    },
+    complete: function () {
+      $loading.remove(); // remove spinner
+    }
+  });
 
-fetchData(url);
+});

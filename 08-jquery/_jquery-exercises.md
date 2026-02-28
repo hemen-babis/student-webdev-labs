@@ -17,3 +17,4 @@ Fetch all books from the API of Ice and Fire and append them to the DOM. This ex
 
 <img src="../_assets/javascript-exercises/javascript-ex06-fetch-01.png" height=200 alt="screenshot of the starting file with a spinner gif">
 <img src="../_assets/javascript-exercises/javascript-ex06-fetch-02.png" height=200 alt="screenshot of completed exercise, with a list of all game of thrones books">
+
